@@ -1647,7 +1647,7 @@ public class Script : ScriptBase
       }
     }
 
-    // Composite Templates (please toggle up when not working on this part of code)
+    // Composite Templates Request Body (please toggle up when not working on this part of code)
     if (operationId.Equals("StaticResponseForCompositeTemplates", StringComparison.OrdinalIgnoreCase))
     {
       var tabsJsonObj = new JObject
@@ -1655,10 +1655,10 @@ public class Script : ScriptBase
         ["type"] = "object",
         ["properties"] = new JObject
         {
-          ["approveTabs"] = new JObject
+          ["- approveTabs"] = new JObject
           {
             ["type"] = "array",
-            ["x-ms-summary"] = "Approve",
+            ["x-ms-summary"] = "- Approve",
             ["items"] = new JObject
             {
               ["type"] = "object",
@@ -1667,35 +1667,35 @@ public class Script : ScriptBase
                 ["anchorString"] = new JObject
                 {
                   ["type"] = "string",
-                  ["x-ms-summary"] = "Anchor String"
+                  ["x-ms-summary"] = "- Anchor String"
                 },
                 ["tabLabel"] = new JObject
                 {
                   ["type"] = "string",
-                  ["x-ms-summary"] = "label"
+                  ["x-ms-summary"] = "- label"
                 },
                 ["buttonText"] = new JObject
                 {
                   ["type"] = "string",
-                  ["x-ms-summary"] = "Button Text"
+                  ["x-ms-summary"] = "- Button Text"
                 },
                 ["anchorXOffset"] = new JObject
                 {
                   ["type"] = "string",
-                  ["x-ms-summary"] = "Anchor X Offset"
+                  ["x-ms-summary"] = "- Anchor X Offset"
                 },
                 ["anchorYOffset"] = new JObject
                 {
                   ["type"] = "string",
-                  ["x-ms-summary"] = "Anchor Y Offset"
+                  ["x-ms-summary"] = "- Anchor Y Offset"
                 }
               }
             }
           },
-          ["checkboxTabs"] = new JObject
+          ["- checkboxTabs"] = new JObject
           {
             ["type"] = "array",
-            ["x-ms-summary"] = "Checkbox",
+            ["x-ms-summary"] = "- Checkbox",
             ["items"] = new JObject
             {
               ["type"] = "object",
@@ -1704,45 +1704,45 @@ public class Script : ScriptBase
                 ["tabLabel"] = new JObject
                 {
                   ["type"] = "string",
-                  ["x-ms-summary"] = "Tab Label"
+                  ["x-ms-summary"] = "- Tab Label"
                 },
                 ["anchorString"] = new JObject
                 {
                   ["type"] = "string",
-                  ["x-ms-summary"] = "Anchor String"
+                  ["x-ms-summary"] = "- Anchor String"
                 },
                 ["anchorHorizontalAlignment"] = new JObject
                 {
                   ["type"] = "string",
-                  ["x-ms-summary"] = "Anchor Horizontal Alignment"
+                  ["x-ms-summary"] = "- Anchor Horizontal Alignment"
                 },
                 ["locked"] = new JObject
                 {
                   ["type"] = "string",
-                  ["x-ms-summary"] = "Read Only",
+                  ["x-ms-summary"] = "- Read Only",
                   ["description"] = "Select",
                   ["enum"] = new JArray ("true", "false")
                 },
                 ["selected"] = new JObject
                 {
                   ["type"] = "string",
-                  ["x-ms-summary"] = "Selected",
+                  ["x-ms-summary"] = "- Selected",
                   ["description"] = "true/false"
                 },
                 ["anchorYOffset"] = new JObject
                 {
                   ["type"] = "string",
-                  ["x-ms-summary"] = "Anchor Y Offset"
+                  ["x-ms-summary"] = "- Anchor Y Offset"
                 },
                 ["anchorXOffset"] = new JObject
                 {
                   ["type"] = "string",
-                  ["x-ms-summary"] = "Anchor X Offset"
+                  ["x-ms-summary"] = "- Anchor X Offset"
                 },
-                ["tabGroupLabels"] = new JObject
+                ["- tabGroupLabels"] = new JObject
                 {
                   ["type"] = "array",
-                  ["x-ms-summary"] = "Tab Group Labels",
+                  ["x-ms-summary"] = "- Tab Group Labels",
                   ["items"] = new JObject
                     {
                       ["type"] = "string",
@@ -1752,10 +1752,10 @@ public class Script : ScriptBase
               }
             }
           },
-          ["tabGroups"] = new JObject
+          ["- tabGroups"] = new JObject
           {
             ["type"] = "array",
-            ["x-ms-summary"] = "Checkbox Group",
+            ["x-ms-summary"] = "- Checkbox Group",
             ["items"] = new JObject
             {
               ["type"] = "object",
@@ -1764,52 +1764,52 @@ public class Script : ScriptBase
                 ["groupLabel"] = new JObject
                 {
                   ["type"] = "string",
-                  ["x-ms-summary"] = "Group Label"
+                  ["x-ms-summary"] = "- Group Label"
                 },
                 ["documentId"] = new JObject
                 {
                   ["type"] = "string",
-                  ["x-ms-summary"] = "Document ID"
+                  ["x-ms-summary"] = "- Document ID"
                 },
                 ["validationMessage"] = new JObject
                 {
                   ["type"] = "string",
-                  ["x-ms-summary"] = "Validation Message"
+                  ["x-ms-summary"] = "- Validation Message"
                 },
                 ["groupRule"] = new JObject
                 {
                   ["type"] = "string",
-                  ["x-ms-summary"] = "Group Rule",
+                  ["x-ms-summary"] = "- Group Rule",
                   ["description"] = "Select",
                   ["enum"] = new JArray ("SelectAtLeast", "SelectAtMost", "SelectExactly", "SelectARange")
                 },
                 ["minimumRequired"] = new JObject
                 {
                   ["type"] = "string",
-                  ["x-ms-summary"] = "Minimum Required"
+                  ["x-ms-summary"] = "- Minimum Required"
                 },
                 ["maximumAllowed"] = new JObject
                 {
                   ["type"] = "string",
-                  ["x-ms-summary"] = "Maximum Allowed"
+                  ["x-ms-summary"] = "- Maximum Allowed"
                 },
                 ["anchorXOffset"] = new JObject
                 {
                   ["type"] = "string",
-                  ["x-ms-summary"] = "Anchor X Offset"
+                  ["x-ms-summary"] = "- Anchor X Offset"
                 },
                 ["anchorYOffset"] = new JObject
                 {
                   ["type"] = "string",
-                  ["x-ms-summary"] = "Anchor Y Offset",
+                  ["x-ms-summary"] = "- Anchor Y Offset",
                 }
               }
             }
           },
-          ["companyTabs"] = new JObject
+          ["- companyTabs"] = new JObject
           {
             ["type"] = "array",
-            ["x-ms-summary"] = "Company",
+            ["x-ms-summary"] = "- Company",
             ["items"] = new JObject
             {
               ["type"] = "object",
@@ -1818,32 +1818,32 @@ public class Script : ScriptBase
                 ["anchorString"] = new JObject
                 {
                   ["type"] = "string",
-                  ["x-ms-summary"] = "Anchor String"
+                  ["x-ms-summary"] = "- Anchor String"
                 },
                 ["locked"] = new JObject
                 {
                   ["type"] = "string",
-                  ["x-ms-summary"] = "Read Only",
+                  ["x-ms-summary"] = "- Read Only",
                   ["description"] = "Select",
                   ["enum"] = new JArray("true", "false")
                 },
                 ["anchorXOffset"] = new JObject
                 {
                   ["type"] = "string",
-                  ["x-ms-summary"] = "Anchor X Offset"
+                  ["x-ms-summary"] = "- Anchor X Offset"
                 },
                 ["anchorYOffset"] = new JObject
                 {
                   ["type"] = "string",
-                  ["x-ms-summary"] = "Anchor Y Offset"
+                  ["x-ms-summary"] = "- Anchor Y Offset"
                 }
               }
             }
           },
-          ["dateTabs"] = new JObject
+          ["- dateTabs"] = new JObject
           {
             ["type"] = "array",
-            ["x-ms-summary"] = "Date",
+            ["x-ms-summary"] = "- Date",
             ["items"] = new JObject
             {
               ["type"] = "object",
@@ -1852,37 +1852,37 @@ public class Script : ScriptBase
                 ["anchorString"] = new JObject
                 {
                   ["type"] = "string",
-                  ["x-ms-summary"] = "Anchor String"
+                  ["x-ms-summary"] = "- Anchor String"
                 },
                 ["value"] = new JObject
                 {
                   ["type"] = "string",
-                  ["x-ms-summary"] = "Value"
+                  ["x-ms-summary"] = "- Value"
                 },
                 ["locked"] = new JObject
                 {
                   ["type"] = "string",
-                  ["x-ms-summary"] = "Read Only",
+                  ["x-ms-summary"] = "- Read Only",
                   ["description"] = "Select",
                   ["enum"] = new JArray ("true", "false")
                 },
                 ["anchorXOffset"] = new JObject
                 {
                   ["type"] = "string",
-                  ["x-ms-summary"] = "Anchor X Offset"
+                  ["x-ms-summary"] = "- Anchor X Offset"
                 },
                 ["anchorYOffset"] = new JObject
                 {
                   ["type"] = "string",
-                  ["x-ms-summary"] = "Anchor Y Offset"
+                  ["x-ms-summary"] = "- Anchor Y Offset"
                 }
               }
             }
           },
-          ["dateSignedTabs"] = new JObject
+          ["- dateSignedTabs"] = new JObject
           {
             ["type"] = "array",
-            ["x-ms-summary"] = "Date Signed",
+            ["x-ms-summary"] = "- Date Signed",
             ["items"] = new JObject
             {
               ["type"] = "object",
@@ -1891,30 +1891,30 @@ public class Script : ScriptBase
                 ["anchorString"] = new JObject
                 {
                   ["type"] = "string",
-                  ["x-ms-summary"] = "Anchor String"
+                  ["x-ms-summary"] = "- Anchor String"
                 },
                 ["tabLabel"] = new JObject
                 {
                   ["type"] = "string",
-                  ["x-ms-summary"] = "Label"
+                  ["x-ms-summary"] = "- Label"
                 },
                 ["anchorXOffset"] = new JObject
                 {
                   ["type"] = "string",
-                  ["x-ms-summary"] = "Anchor X Offset"
+                  ["x-ms-summary"] = "- Anchor X Offset"
                 },
                 ["anchorYOffset"] = new JObject
                 {
                   ["type"] = "string",
-                  ["x-ms-summary"] = "Anchor Y Offset"
+                  ["x-ms-summary"] = "- Anchor Y Offset"
                 }
               }
             }
           },
-          ["declineTabs"] = new JObject
+          ["- declineTabs"] = new JObject
           {
             ["type"] = "array",
-            ["x-ms-summary"] = "Decline",
+            ["x-ms-summary"] = "- Decline",
             ["items"] = new JObject
             {
               ["type"] = "object",
@@ -1923,30 +1923,30 @@ public class Script : ScriptBase
                 ["anchorString"] = new JObject
                 {
                   ["type"] = "string",
-                  ["x-ms-summary"] = "Anchor String"
+                  ["x-ms-summary"] = "- Anchor String"
                 },
                 ["buttonText"] = new JObject
                 {
                   ["type"] = "string",
-                  ["x-ms-summary"] = "Button Text"
+                  ["x-ms-summary"] = "- Button Text"
                 },
                 ["anchorXOffset"] = new JObject
                 {
                   ["type"] = "string",
-                  ["x-ms-summary"] = "Anchor X Offset"
+                  ["x-ms-summary"] = "- Anchor X Offset"
                 },
                 ["anchorYOffset"] = new JObject
                 {
                   ["type"] = "string",
-                  ["x-ms-summary"] = "Anchor Y Offset"
+                  ["x-ms-summary"] = "- Anchor Y Offset"
                 }
               }
             }
           },
-          ["listTabs"] = new JObject
+          ["- listTabs"] = new JObject
           {
             ["type"] = "array",
-            ["x-ms-summary"] = "Dropdown",
+            ["x-ms-summary"] = "- Dropdown",
             ["items"] = new JObject
             {
               ["type"] = "object",
@@ -1955,31 +1955,31 @@ public class Script : ScriptBase
                 ["anchorString"] = new JObject
                 {
                   ["type"] = "string",
-                  ["x-ms-summary"] = "Anchor String"
+                  ["x-ms-summary"] = "- Anchor String"
                 },
-                ["listItems"] = new JObject
+                ["- listItems"] = new JObject
                 {
                   ["type"] = "array",
                   ["items"] = new JObject
                     {
                       ["type"] = "object",
-                      ["x-ms-summary"] = "List Item",
+                      ["x-ms-summary"] = "- List Item",
                       ["properties"] = new JObject
                       {
                         ["selected"] = new JObject
                         {
                           ["type"] = "string",
-                          ["x-ms-summary"] = "Selected",
+                          ["x-ms-summary"] = "- Selected",
                           ["description"] = "true/false"
                         },
                         ["text"] = new JObject
                         {
-                          ["x-ms-summary"] = "Text",
+                          ["x-ms-summary"] = "- Text",
                           ["type"] = "string"
                         },
                         ["value"] = new JObject
                         {
-                          ["x-ms-summary"] = "Value",
+                          ["x-ms-summary"] = "- Value",
                           ["type"] = "string"
                         }
                       }
@@ -1988,44 +1988,44 @@ public class Script : ScriptBase
                 ["listSelectedValue"] = new JObject
                 {
                   ["type"] = "string",
-                  ["x-ms-summary"] = "Default Option"
+                  ["x-ms-summary"] = "- Default Option"
                 },
                 ["locked"] = new JObject
                 {
                   ["type"] = "string",
-                  ["x-ms-summary"] = "Read Only",
+                  ["x-ms-summary"] = "- Read Only",
                   ["description"] = "Select",
                   ["enum"] = new JArray ("true", "false")
                 },
                 ["required"] = new JObject
                 {
                   ["type"] = "string",
-                  ["x-ms-summary"] = "Required",
+                  ["x-ms-summary"] = "- Required",
                   ["description"] = "Select",
                   ["enum"] = new JArray ("true", "false")
                 },
                 ["tooltip"] = new JObject
                 {
                   ["type"] = "string",
-                  ["x-ms-summary"] = "Tooltip"
+                  ["x-ms-summary"] = "- Tooltip"
                 },
                 ["anchorXOffset"] = new JObject
                 {
                   ["type"] = "string",
-                  ["x-ms-summary"] = "Anchor X Offset"
+                  ["x-ms-summary"] = "- Anchor X Offset"
                 },
                 ["anchorYOffset"] = new JObject
                 {
                   ["type"] = "string",
-                  ["x-ms-summary"] = "Anchor Y Offset"
+                  ["x-ms-summary"] = "- Anchor Y Offset"
                 }
               }
             }
           },
-          ["emailTabs"] = new JObject
+          ["- emailTabs"] = new JObject
           {
             ["type"] = "array",
-            ["x-ms-summary"] = "Email",
+            ["x-ms-summary"] = "- Email",
             ["items"] = new JObject
             {
               ["type"] = "object",
@@ -2034,27 +2034,27 @@ public class Script : ScriptBase
                 ["anchorString"] = new JObject
                 {
                   ["type"] = "string",
-                  ["x-ms-summary"] = "Anchor String"
+                  ["x-ms-summary"] = "- Anchor String"
                 },
                 ["tabLabel"] = new JObject
                 {
                   ["type"] = "string",
-                  ["x-ms-summary"] = "Label"
+                  ["x-ms-summary"] = "- Label"
                 },
                 ["anchorXOffset"] = new JObject
                 {
                   ["type"] = "string",
-                  ["x-ms-summary"] = "Anchor X Offset"
+                  ["x-ms-summary"] = "- Anchor X Offset"
                 },
                 ["anchorYOffset"] = new JObject
                 {
                   ["type"] = "string",
-                  ["x-ms-summary"] = "Anchor Y Offset"
+                  ["x-ms-summary"] = "- Anchor Y Offset"
                 }
               }
             }
           },
-          ["firstNameTabs"] = new JObject
+          ["- firstNameTabs"] = new JObject
           {
             ["type"] = "array",
             ["x-ms-summary"] = "First Name",
@@ -2066,25 +2066,25 @@ public class Script : ScriptBase
                 ["anchorString"] = new JObject
                 {
                   ["type"] = "string",
-                  ["x-ms-summary"] = "Anchor String"
+                  ["x-ms-summary"] = "- Anchor String"
                 },
                 ["anchorXOffset"] = new JObject
                 {
                   ["type"] = "string",
-                  ["x-ms-summary"] = "Anchor X Offset"
+                  ["x-ms-summary"] = "- Anchor X Offset"
                 },
                 ["anchorYOffset"] = new JObject
                 {
                   ["type"] = "string",
-                  ["x-ms-summary"] = "Anchor Y Offset"
+                  ["x-ms-summary"] = "- Anchor Y Offset"
                 }
               }
             }
           },
-          ["formulaTabs"] = new JObject
+          ["- formulaTabs"] = new JObject
           {
             ["type"] = "array",
-            ["x-ms-summary"] = "Formula",
+            ["x-ms-summary"] = "- Formula",
             ["items"] = new JObject
             {
               ["type"] = "object",
@@ -2093,41 +2093,41 @@ public class Script : ScriptBase
                 ["anchorString"] = new JObject
                 {
                   ["type"] = "string",
-                  ["x-ms-summary"] = "Anchor String"
+                  ["x-ms-summary"] = "- Anchor String"
                 },
                 ["formula"] = new JObject
                 {
                   ["type"] = "string",
-                  ["x-ms-summary"] = "Formula"
+                  ["x-ms-summary"] = "- Formula"
                 },
                 ["hidden"] = new JObject
                 {
                   ["type"] = "string",
-                  ["x-ms-summary"] = "Hidden",
+                  ["x-ms-summary"] = "- Hidden",
                   ["description"] = "true/false"
                 },
                 ["roundDecimalPlaces"] = new JObject
                 {
                   ["type"] = "string",
-                  ["x-ms-summary"] = "Decimal places"
+                  ["x-ms-summary"] = "- Decimal places"
                 },
                 ["anchorXOffset"] = new JObject
                 {
                   ["type"] = "string",
-                  ["x-ms-summary"] = "Anchor X Offset"
+                  ["x-ms-summary"] = "- Anchor X Offset"
                 },
                 ["anchorYOffset"] = new JObject
                 {
                   ["type"] = "string",
-                  ["x-ms-summary"] = "Anchor Y Offset"
+                  ["x-ms-summary"] = "- Anchor Y Offset"
                 }
               }
             }
           },
-          ["fullNameTabs"] = new JObject
+          ["- fullNameTabs"] = new JObject
           {
             ["type"] = "array",
-            ["x-ms-summary"] = "Full Name",
+            ["x-ms-summary"] = "- Full Name",
             ["items"] = new JObject
             {
               ["type"] = "object",
@@ -2136,83 +2136,62 @@ public class Script : ScriptBase
                 ["anchorString"] = new JObject
                 {
                   ["type"] = "string",
-                  ["x-ms-summary"] = "Anchor String"
+                  ["x-ms-summary"] = "- Anchor String"
                 },
                 ["tabLabel"] = new JObject
                 {
                   ["type"] = "string",
-                  ["x-ms-summary"] = "Label"
+                  ["x-ms-summary"] = "- Label"
                 },
                 ["anchorXOffset"] = new JObject
                 {
                   ["type"] = "string",
-                  ["x-ms-summary"] = "Anchor X Offset"
+                  ["x-ms-summary"] = "- Anchor X Offset"
                 },
                 ["anchorXOffset"] = new JObject
                 {
                   ["type"] = "string",
-                  ["x-ms-summary"] = "Anchor X Offset"
+                  ["x-ms-summary"] = "- Anchor X Offset"
                 },
                 ["anchorYOffset"] = new JObject
                 {
                   ["type"] = "string",
-                  ["x-ms-summary"] = "Anchor Y Offset"
+                  ["x-ms-summary"] = "- Anchor Y Offset"
                 },
                 ["font"] = new JObject
                 {
                   ["type"] = "string",
-                  ["x-ms-dynamic-values"] = new JObject
-                    {
-                      ["operationId"] = "StaticResponseForFontFaces",
-                      ["value-collection"] = "fontNames",
-                      ["value-path"] = "name",
-                      ["value-title"] = "name"
-                    },
-                  ["x-ms-summary"] = "Font"
+                  ["x-ms-summary"] = "- Font"
                 },
                 ["fontColor"] = new JObject
                 {
                   ["type"] = "string",
-                  ["x-ms-dynamic-values"] = new JObject
-                  {
-                    ["operationId"] = "StaticResponseForFontColors",
-                    ["value-collection"] = "fontNames",
-                    ["value-path"] = "name",
-                    ["value-title"] = "name"
-                  },
-                  ["x-ms-summary"] = "Font Color"
+                  ["x-ms-summary"] = "- Font Color"
                 },
                 ["fontSize"] = new JObject
                 {
                   ["type"] = "string",
-                  ["x-ms-dynamic-values"] = new JObject
-                  {
-                    ["operationId"] = "StaticResponseForFontSizes",
-                    ["value-collection"] = "fontNames",
-                    ["value-path"] = "name",
-                    ["value-title"] = "name"
-                  },
-                  ["x-ms-summary"] = "Font Size"
+                  ["x-ms-summary"] = "- Font Size"
                 },
                 ["bold"] = new JObject
                 {
                   ["type"] = "string",
-                  ["x-ms-summary"] = "Bold",
+                  ["x-ms-summary"] = "- Bold",
                   ["description"] = "true/false"
                 },
                 ["italic"] = new JObject
                 {
                   ["type"] = "string",
-                  ["x-ms-summary"] = "Italic",
+                  ["x-ms-summary"] = "- Italic",
                   ["description"] = "true/false"
                 }
               }
             }
           },
-          ["initialHereTabs"] = new JObject
+          ["- initialHereTabs"] = new JObject
           {
             ["type"] = "array",
-            ["x-ms-summary"] = "Initial",
+            ["x-ms-summary"] = "- Initial",
             ["items"] = new JObject
             {
               ["type"] = "object",
@@ -2221,32 +2200,32 @@ public class Script : ScriptBase
                 ["anchorString"] = new JObject
                 {
                   ["type"] = "string",
-                  ["x-ms-summary"] = "Anchor String"
+                  ["x-ms-summary"] = "- Anchor String"
                 },
                 ["optional"] = new JObject
                 {
                   ["type"] = "string",
-                  ["x-ms-summary"] = "Optional",
+                  ["x-ms-summary"] = "- Optional",
                   ["description"] = "Select",
                   ["enum"] = new JArray("true", "false")
                 },
                 ["anchorXOffset"] = new JObject
                 {
                   ["type"] = "string",
-                  ["x-ms-summary"] = "Anchor X Offset"
+                  ["x-ms-summary"] = "- Anchor X Offset"
                 },
                 ["anchorYOffset"] = new JObject
                 {
                   ["type"] = "string",
-                  ["x-ms-summary"] = "Anchor Y Offset"
+                  ["x-ms-summary"] = "- Anchor Y Offset"
                 }
               }
             }
           },
-          ["lastNameTabs"] = new JObject
+          ["- lastNameTabs"] = new JObject
           {
             ["type"] = "array",
-            ["x-ms-summary"] = "Last Name",
+            ["x-ms-summary"] = "- Last Name",
             ["items"] = new JObject
             {
               ["type"] = "object",
@@ -2255,25 +2234,25 @@ public class Script : ScriptBase
                 ["anchorString"] = new JObject
                 {
                   ["type"] = "string",
-                  ["x-ms-summary"] = "Anchor String"
+                  ["x-ms-summary"] = "- Anchor String"
                 },
                 ["anchorXOffset"] = new JObject
                 {
                   ["type"] = "string",
-                  ["x-ms-summary"] = "Anchor X Offset"
+                  ["x-ms-summary"] = "- Anchor X Offset"
                 },
                 ["anchorYOffset"] = new JObject
                 {
                   ["type"] = "string",
-                  ["x-ms-summary"] = "Anchor Y Offset"
+                  ["x-ms-summary"] = "- Anchor Y Offset"
                 }
               }
             }
           },
-          ["noteTabs"] = new JObject
+          ["- noteTabs"] = new JObject
           {
             ["type"] = "array",
-            ["x-ms-summary"] = "Note",
+            ["x-ms-summary"] = "- Note",
             ["items"] = new JObject
             {
               ["type"] = "object",
@@ -2282,30 +2261,30 @@ public class Script : ScriptBase
                 ["anchorString"] = new JObject
                 {
                   ["type"] = "string",
-                  ["x-ms-summary"] = "Anchor String"
+                  ["x-ms-summary"] = "- Anchor String"
                 },
                 ["value"] = new JObject
                 {
                   ["type"] = "string",
-                  ["x-ms-summary"] = "Note Text"
+                  ["x-ms-summary"] = "- Note Text"
                 },
                 ["anchorXOffset"] = new JObject
                 {
                   ["type"] = "string",
-                  ["x-ms-summary"] = "Anchor X Offset"
+                  ["x-ms-summary"] = "- Anchor X Offset"
                 },
                 ["anchorYOffset"] = new JObject
                 {
                   ["type"] = "string",
-                  ["x-ms-summary"] = "Anchor Y Offset"
+                  ["x-ms-summary"] = "- Anchor Y Offset"
                 }
               }
             }
           },
-          ["numberTabs"] = new JObject
+          ["- numberTabs"] = new JObject
           {
             ["type"] = "array",
-            ["x-ms-summary"] = "Number",
+            ["x-ms-summary"] = "- Number",
             ["items"] = new JObject
             {
               ["type"] = "object",
@@ -2314,44 +2293,44 @@ public class Script : ScriptBase
                 ["anchorString"] = new JObject
                 {
                   ["type"] = "string",
-                  ["x-ms-summary"] = "Anchor String"
+                  ["x-ms-summary"] = "- Anchor String"
                 },
                 ["value"] = new JObject
                 {
                   ["type"] = "string",
-                  ["x-ms-summary"] = "Value"
+                  ["x-ms-summary"] = "- Value"
                 },
                 ["locked"] = new JObject
                 {
                   ["type"] = "string",
-                  ["x-ms-summary"] = "Read Only",
+                  ["x-ms-summary"] = "- Read Only",
                   ["description"] = "Select",
                   ["enum"] = new JArray ("true", "false")
                 },
                 ["required"] = new JObject
                 {
                   ["type"] = "string",
-                  ["x-ms-summary"] = "Required",
+                  ["x-ms-summary"] = "- Required",
                   ["description"] = "Select",
                   ["enum"] = new JArray ("true", "false")
                 },
                 ["anchorXOffset"] = new JObject
                 {
                   ["type"] = "string",
-                  ["x-ms-summary"] = "Anchor X Offset"
+                  ["x-ms-summary"] = "- Anchor X Offset"
                 },
                 ["anchorYOffset"] = new JObject
                 {
                   ["type"] = "string",
-                  ["x-ms-summary"] = "Anchor Y Offset"
+                  ["x-ms-summary"] = "- Anchor Y Offset"
                 }
               }
             }
           },
-          ["numericalTabs"] = new JObject
+          ["- numericalTabs"] = new JObject
           {
             ["type"] = "array",
-            ["x-ms-summary"] = "Numerical",
+            ["x-ms-summary"] = "- Numerical",
             ["items"] = new JObject
             {
               ["type"] = "object",
@@ -2360,80 +2339,80 @@ public class Script : ScriptBase
                 ["anchorString"] = new JObject
                 {
                   ["type"] = "string",
-                  ["x-ms-summary"] = "Anchor String"
+                  ["x-ms-summary"] = "- Anchor String"
                 },
                 ["numericalValue"] = new JObject
                 {
-                  ["x-ms-summary"] = "Value",
+                  ["x-ms-summary"] = "- Value",
                   ["type"] = "string"
                 },
                 ["locked"] = new JObject
                 {
                   ["type"] = "string",
-                  ["x-ms-summary"] = "Read Only",
+                  ["x-ms-summary"] = "- Read Only",
                   ["description"] = "Select",
                   ["enum"] = new JArray ("true", "false")
                 },
                 ["required"] = new JObject
                 {
                   ["type"] = "string",
-                  ["x-ms-summary"] = "Required",
+                  ["x-ms-summary"] = "- Required",
                   ["description"] = "Select",
                   ["enum"] = new JArray ("true", "false")
                 },
                 ["validationType"] = new JObject
                 {
                   ["type"] = "string",
-                  ["x-ms-summary"] = "Validation Type",
+                  ["x-ms-summary"] = "- Validation Type",
                   ["description"] = "Select",
                   ["enum"] = new JArray("Currency", "Number")
                 },
                 ["minNumericalValue"] = new JObject
                 {
-                  ["x-ms-summary"] = "Minimum Amount",
+                  ["x-ms-summary"] = "- Minimum Amount",
                   ["type"] = "string"
                 },
                 ["maxNumericalValue"] = new JObject
                 {
-                  ["x-ms-summary"] = "Maximum Amount",
+                  ["x-ms-summary"] = "- Maximum Amount",
                   ["type"] = "string"
                 },
-                ["localePolicyTab"] = new JObject
+                ["- localePolicyTab"] = new JObject
                 {
                   ["type"] = "array",
-                  ["x-ms-summary"] = "Locale Policy",
+                  ["x-ms-summary"] = "- Locale Policy",
                   ["items"] = new JObject
                     {
                       ["type"] = "object",
-                      ["x-ms-summary"] = "Locale Policy",
+                      ["x-ms-summary"] = "- Locale Policy",
                       ["properties"] = new JObject
                       {
                         ["cultureName"] = new JObject
                         {
                           ["type"] = "string",
                           ["x-ms-summary"] = "Culture Name",
-                          ["description"] = "The two letter ISO 639-1 language code.",
+                          ["description"] = "- The two letter ISO 639-1 language code.",
                         },
                         ["currencyCode"] = new JObject
                         {
                           ["type"] = "string",
                           ["x-ms-summary"] = "Currency Code",
-                          ["description"] = "The ISO 4217 currency code.",
+                          ["description"] = "- The ISO 4217 currency code.",
                         },
                         ["currencyPositiveFormat"] = new JObject
                         {
                           ["type"] = "string",
-                          ["x-ms-summary"] = "Currency Positive Format"
+                          ["x-ms-summary"] = "- Currency Positive Format"
                         },
                         ["currencyNegativeFormat"] = new JObject
                         {
                           ["type"] = "string",
-                          ["x-ms-summary"] = "Currency Negative Format"
+                          ["x-ms-summary"] = "- Currency Negative Format"
                         },
                         ["useLongCurrencyFormat"] = new JObject
                         {
                           ["type"] = "string",
-                          ["x-ms-summary"] = "Use Long Currency Format",
+                          ["x-ms-summary"] = "- Use Long Currency Format",
                           ["description"] = "true/false",
                         }
                       }
@@ -2442,20 +2421,20 @@ public class Script : ScriptBase
                 ["anchorXOffset"] = new JObject
                 {
                   ["type"] = "string",
-                  ["x-ms-summary"] = "Anchor X Offset"
+                  ["x-ms-summary"] = "- Anchor X Offset"
                 },
                 ["anchorYOffset"] = new JObject
                 {
                   ["type"] = "string",
-                  ["x-ms-summary"] = "Anchor Y Offset"
+                  ["x-ms-summary"] = "- Anchor Y Offset"
                 }
               }
             }
           },
-          ["radioGroupTabs"] = new JObject
+          ["- radioGroupTabs"] = new JObject
           {
             ["type"] = "array",
-            ["x-ms-summary"] = "Radio Group",
+            ["x-ms-summary"] = "- Radio Group",
             ["items"] = new JObject
             {
               ["type"] = "object",
@@ -2464,56 +2443,56 @@ public class Script : ScriptBase
                 ["anchorString"] = new JObject
                 {
                   ["type"] = "string",
-                  ["x-ms-summary"] = "Anchor String"
+                  ["x-ms-summary"] = "- Anchor String"
                 },
                 ["anchorHorizontalAlignment"] = new JObject
                 {
-                  ["x-ms-summary"] = "Anchor Horizontal Alignment",
+                  ["x-ms-summary"] = "- Anchor Horizontal Alignment",
                   ["type"] = "string",
                   ["description"] = "left/right"
                 },
                 ["value"] = new JObject
                 {
                   ["type"] = "string",
-                  ["x-ms-summary"] = "Value"
+                  ["x-ms-summary"] = "- Value"
                 },
                 ["selected"] = new JObject
                 {
                   ["type"] = "string",
-                  ["x-ms-summary"] = "Selected",
+                  ["x-ms-summary"] = "- Selected",
                   ["description"] = "true/false"
                 },
                 ["locked"] = new JObject
                 {
                   ["type"] = "string",
-                  ["x-ms-summary"] = "Read Only",
+                  ["x-ms-summary"] = "- Read Only",
                   ["description"] = "Select",
                   ["enum"] = new JArray ("true", "false")
                 },
                 ["required"] = new JObject
                 {
                   ["type"] = "string",
-                  ["x-ms-summary"] = "Required",
+                  ["x-ms-summary"] = "- Required",
                   ["description"] = "Select",
                   ["enum"] = new JArray ("true", "false")
                 },
                 ["anchorXOffset"] = new JObject
                 {
-                  ["x-ms-summary"] = "Anchor X Offset",
+                  ["x-ms-summary"] = "- Anchor X Offset",
                   ["type"] = "string"
                 }
                 ["anchorYOffset"] = new JObject
                 {
-                  ["x-ms-summary"] = "Anchor Y Offset",
+                  ["x-ms-summary"] = "- Anchor Y Offset",
                   ["type"] = "string"
                 }
               }
             }
           },
-          ["signHereTabs"] = new JObject
+          ["- signHereTabs"] = new JObject
           {
             ["type"] = "array",
-            ["x-ms-summary"] = "Signature",
+            ["x-ms-summary"] = "- Signature",
             ["items"] = new JObject
             {
               ["type"] = "object",
@@ -2522,37 +2501,37 @@ public class Script : ScriptBase
                 ["anchorString"] = new JObject
                 {
                   ["type"] = "string",
-                  ["x-ms-summary"] = "Anchor String"
+                  ["x-ms-summary"] = "- Anchor String"
                 },
                 ["optional"] = new JObject
                 {
                   ["type"] = "string",
-                  ["x-ms-summary"] = "Optional",
+                  ["x-ms-summary"] = "- Optional",
                   ["description"] = "Select",
                   ["enum"] = new JArray ("true", "false")
                 },
                 ["tabLabel"] = new JObject
                 {
                   ["type"] = "string",
-                  ["x-ms-summary"] = "label"
+                  ["x-ms-summary"] = "- label"
                 },
                 ["anchorXOffset"] = new JObject
                 {
                   ["type"] = "string",
-                  ["x-ms-summary"] = "Anchor X Offset"
+                  ["x-ms-summary"] = "- Anchor X Offset"
                 },
                 ["anchorYOffset"] = new JObject
                 {
                   ["type"] = "string",
-                  ["x-ms-summary"] = "Anchor Y Offset"
+                  ["x-ms-summary"] = "- Anchor Y Offset"
                 }
               }
             }
           },
-          ["signerAttachmentTabs"] = new JObject
+          ["- signerAttachmentTabs"] = new JObject
           {
             ["type"] = "array",
-            ["x-ms-summary"] = "Signer Attachment",
+            ["x-ms-summary"] = "- Signer Attachment",
             ["items"] = new JObject
             {
               ["type"] = "object",
@@ -2561,37 +2540,37 @@ public class Script : ScriptBase
                 ["anchorString"] = new JObject
                 {
                   ["type"] = "string",
-                  ["x-ms-summary"] = "Anchor String"
+                  ["x-ms-summary"] = "- Anchor String"
                 },
                 ["optional"] = new JObject
                 {
                   ["type"] = "string",
-                  ["x-ms-summary"] = "Optional",
+                  ["x-ms-summary"] = "- Optional",
                   ["description"] = "Select",
                   ["enum"] = new JArray ("true", "false")
                 },
                 ["tabLabel"] = new JObject
                 {
                   ["type"] = "string",
-                  ["x-ms-summary"] = "label"
+                  ["x-ms-summary"] = "- label"
                 },
                 ["anchorXOffset"] = new JObject
                 {
                   ["type"] = "string",
-                  ["x-ms-summary"] = "Anchor X Offset"
+                  ["x-ms-summary"] = "- Anchor X Offset"
                 },
                 ["anchorYOffset"] = new JObject
                 {
                   ["type"] = "string",
-                  ["x-ms-summary"] = "Anchor Y Offset"
+                  ["x-ms-summary"] = "- Anchor Y Offset"
                 }
               }
             }
           },
-          ["ssnTabs"] = new JObject
+          ["- ssnTabs"] = new JObject
           {
             ["type"] = "array",
-            ["x-ms-summary"] = "SSN",
+            ["x-ms-summary"] = "- SSN",
             ["items"] = new JObject
             {
               ["type"] = "object",
@@ -2600,44 +2579,44 @@ public class Script : ScriptBase
                 ["anchorString"] = new JObject
                 {
                   ["type"] = "string",
-                  ["x-ms-summary"] = "Anchor String"
+                  ["x-ms-summary"] = "- Anchor String"
                 },
                 ["value"] = new JObject
                 {
                   ["type"] = "string",
-                  ["x-ms-summary"] = "Value"
+                  ["x-ms-summary"] = "- Value"
                 },
                 ["locked"] = new JObject
                 {
                   ["type"] = "string",
-                  ["x-ms-summary"] = "Read Only",
+                  ["x-ms-summary"] = "- Read Only",
                   ["description"] = "Select",
                   ["enum"] = new JArray ("true", "false")
                 },
                 ["required"] = new JObject
                 {
                   ["type"] = "string",
-                  ["x-ms-summary"] = "Required",
+                  ["x-ms-summary"] = "- Required",
                   ["description"] = "Select",
                   ["enum"] = new JArray ("true", "false")
                 },
                 ["anchorXOffset"] = new JObject
                 {
                   ["type"] = "string",
-                  ["x-ms-summary"] = "Anchor X Offset"
+                  ["x-ms-summary"] = "- Anchor X Offset"
                 },
                 ["anchorYOffset"] = new JObject
                 {
                   ["type"] = "string",
-                  ["x-ms-summary"] = "Anchor Y Offset"
+                  ["x-ms-summary"] = "- Anchor Y Offset"
                 }
               }
             }
           },
-          ["textTabs"] = new JObject
+          ["- textTabs"] = new JObject
           {
             ["type"] = "array",
-            ["x-ms-summary"] = "Text",
+            ["x-ms-summary"] = "- Text",
             ["items"] = new JObject
             {
               ["type"] = "object",
@@ -2646,108 +2625,87 @@ public class Script : ScriptBase
                 ["anchorString"] = new JObject
                 {
                   ["type"] = "string",
-                  ["x-ms-summary"] = "Anchor String"
+                  ["x-ms-summary"] = "- Anchor String"
                 },
                 ["value"] = new JObject
                 {
                   ["type"] = "string",
-                  ["x-ms-summary"] = "Value"
+                  ["x-ms-summary"] = "- Value"
                 },
                 ["required"] = new JObject
                 {
                   ["type"] = "string",
-                  ["x-ms-summary"] = "Required",
+                  ["x-ms-summary"] = "- Required",
                   ["description"] = "Select",
                   ["enum"] = new JArray ("true", "false")
                 },
                 ["locked"] = new JObject
                 {
                   ["type"] = "string",
-                  ["x-ms-summary"] = "Read Only",
+                  ["x-ms-summary"] = "- Read Only",
                   ["description"] = "Select",
                   ["enum"] = new JArray ("true", "false")
                 },
                 ["validationPattern"] = new JObject
                 {
                   ["type"] = "string",
-                  ["x-ms-summary"] = "Validation Pattern",
+                  ["x-ms-summary"] = "- Validation Pattern",
                   ["description"] = "enter custom regex pattern"
                 },
                 ["validationMessage"] = new JObject
                 {
                   ["type"] = "string",
-                  ["x-ms-summary"] = "Validation Message"
+                  ["x-ms-summary"] = "- Validation Message"
                 },
                 ["tabLabel"] = new JObject
                 {
                   ["type"] = "string",
-                  ["x-ms-summary"] = "Label"
+                  ["x-ms-summary"] = "- Label"
                 },
                 ["anchorXOffset"] = new JObject
                 {
                   ["type"] = "string",
-                  ["x-ms-summary"] = "Anchor X Offset"
+                  ["x-ms-summary"] = "- Anchor X Offset"
                 },
                 ["anchorYOffset"] = new JObject
                 {
                   ["type"] = "string",
-                  ["x-ms-summary"] = "Anchor Y Offset"
+                  ["x-ms-summary"] = "- Anchor Y Offset"
                 },
                 ["font"] = new JObject
                 {
                   ["type"] = "string",
-                  ["x-ms-dynamic-values"] = new JObject
-                    {
-                      ["operationId"] = "StaticResponseForFontFaces",
-                      ["value-collection"] = "fontNames",
-                      ["value-path"] = "name",
-                      ["value-title"] = "name"
-                    },
-                  ["x-ms-summary"] = "Font"
+                  ["x-ms-summary"] = "- Font"
                 },
                 ["fontColor"] = new JObject
                 {
                   ["type"] = "string",
-                  ["x-ms-dynamic-values"] = new JObject
-                  {
-                    ["operationId"] = "StaticResponseForFontColors",
-                    ["value-collection"] = "fontNames",
-                    ["value-path"] = "name",
-                    ["value-title"] = "name"
-                  },
-                  ["x-ms-summary"] = "Font Color"
+                  ["x-ms-summary"] = "- Font Color"
                 },
                 ["fontSize"] = new JObject
                 {
                   ["type"] = "string",
-                  ["x-ms-dynamic-values"] = new JObject
-                  {
-                    ["operationId"] = "StaticResponseForFontSizes",
-                    ["value-collection"] = "fontNames",
-                    ["value-path"] = "name",
-                    ["value-title"] = "name"
-                  },
-                  ["x-ms-summary"] = "Font Size"
+                  ["x-ms-summary"] = "- Font Size"
                 },
                 ["bold"] = new JObject
                 {
                   ["type"] = "string",
-                  ["x-ms-summary"] = "Bold",
+                  ["x-ms-summary"] = "- Bold",
                   ["description"] = "true/false"
                 },
                 ["italic"] = new JObject
                 {
                   ["type"] = "string",
-                  ["x-ms-summary"] = "Italic",
+                  ["x-ms-summary"] = "- Italic",
                   ["description"] = "true/false"
                 }
               }
             }
           },
-          ["titleTabs"] = new JObject
+          ["- titleTabs"] = new JObject
           {
             ["type"] = "array",
-            ["x-ms-summary"] = "Title",
+            ["x-ms-summary"] = "- Title",
             ["items"] = new JObject
             {
               ["type"] = "object",
@@ -2756,44 +2714,44 @@ public class Script : ScriptBase
                 ["anchorString"] = new JObject
                 {
                   ["type"] = "string",
-                  ["x-ms-summary"] = "Anchor String"
+                  ["x-ms-summary"] = "- Anchor String"
                 },
                 ["required"] = new JObject
                 {
                   ["type"] = "string",
-                  ["x-ms-summary"] = "Required",
+                  ["x-ms-summary"] = "- Required",
                   ["description"] = "Select",
                   ["enum"] = new JArray ("true", "false")
                 },
                 ["locked"] = new JObject
                 {
                   ["type"] = "string",
-                  ["x-ms-summary"] = "Read Only",
+                  ["x-ms-summary"] = "- Read Only",
                   ["description"] = "Select",
                   ["enum"] = new JArray ("true", "false")
                 },
                 ["tabLabel"] = new JObject
                 {
                   ["type"] = "string",
-                  ["x-ms-summary"] = "Label"
+                  ["x-ms-summary"] = "- Label"
                 },
                 ["anchorXOffset"] = new JObject
                 {
                   ["type"] = "string",
-                  ["x-ms-summary"] = "Anchor X Offset"
+                  ["x-ms-summary"] = "- Anchor X Offset"
                 },
                 ["anchorYOffset"] = new JObject
                 {
                   ["type"] = "string",
-                  ["x-ms-summary"] = "Anchor Y Offset"
+                  ["x-ms-summary"] = "- Anchor Y Offset"
                 }
               }
             }
           },
-          ["zipTabs"] = new JObject
+          ["- zipTabs"] = new JObject
           {
             ["type"] = "array",
-            ["x-ms-summary"] = "Zip",
+            ["x-ms-summary"] = "- Zip",
             ["items"] = new JObject
             {
               ["type"] = "object",
@@ -2802,36 +2760,36 @@ public class Script : ScriptBase
                 ["anchorString"] = new JObject
                 {
                   ["type"] = "string",
-                  ["x-ms-summary"] = "Anchor String"
+                  ["x-ms-summary"] = "- Anchor String"
                 },
                 ["value"] = new JObject
                 {
                   ["type"] = "string",
-                  ["x-ms-summary"] = "Value"
+                  ["x-ms-summary"] = "- Value"
                 },
                 ["locked"] = new JObject
                 {
                   ["type"] = "string",
-                  ["x-ms-summary"] = "Read Only",
+                  ["x-ms-summary"] = "- Read Only",
                   ["description"] = "Select",
                   ["enum"] = new JArray ("true", "false")
                 },
                 ["required"] = new JObject
                 {
                   ["type"] = "string",
-                  ["x-ms-summary"] = "Required",
+                  ["x-ms-summary"] = "- Required",
                   ["description"] = "Select",
                   ["enum"] = new JArray ("true", "false")
                 },
                 ["anchorXOffset"] = new JObject
                 {
                   ["type"] = "string",
-                  ["x-ms-summary"] = "Anchor X Offset"
+                  ["x-ms-summary"] = "- Anchor X Offset"
                 },
                 ["anchorYOffset"] = new JObject
                 {
                   ["type"] = "string",
-                  ["x-ms-summary"] = "Anchor Y Offset"
+                  ["x-ms-summary"] = "- Anchor Y Offset"
                 }
               }
             }
@@ -2872,12 +2830,12 @@ public class Script : ScriptBase
                   ["sequence"] = new JObject
                   {
                     ["type"] = "string",
-                    ["x-ms-summary"] = "sequence"
+                    ["x-ms-summary"] = "- sequence"
                   },
                   ["templateId"] = new JObject
                   {
                     ["type"] = "string",
-                    ["x-ms-summary"] = "Template ID"
+                    ["x-ms-summary"] = "- Template ID"
                   }
                 }
               }
@@ -2890,23 +2848,23 @@ public class Script : ScriptBase
                 ["documentId"] = new JObject
                 {
                   ["type"] = "string",
-                  ["x-ms-summary"] = "Document ID"
+                  ["x-ms-summary"] = "- Document ID"
                 },
                 ["name"] = new JObject
                 {
                   ["type"] = "string",
-                  ["x-ms-summary"] = "Name"
+                  ["x-ms-summary"] = "- Name"
                 },
                 ["fileExtension"] = new JObject
                 {
                   ["type"] = "string",
-                  ["x-ms-summary"] = "Document type",
+                  ["x-ms-summary"] = "- Document type",
                   ["description"] = "pdf, docx etc."
                 },
                 ["documentBase64"] = new JObject
                 {
                   ["type"] = "string",
-                  ["x-ms-summary"] = "Document base64"
+                  ["x-ms-summary"] = "- Document base64"
                 }
               }
             },
@@ -2923,14 +2881,14 @@ public class Script : ScriptBase
                   ["sequence"] = new JObject
                   {
                     ["type"] = "string",
-                    ["x-ms-summary"] = "sequence"
+                    ["x-ms-summary"] = "- sequence"
                   },
-                  ["customFields"] = new JObject
+                  ["- customFields"] = new JObject
                   {
                     ["type"] = "object",
                     ["properties"] = new JObject
                     {
-                      ["textCustomFields"] = new JObject
+                      ["- textCustomFields"] = new JObject
                       {
                         ["type"] = "array",
                         ["items"] = new JObject
@@ -2941,17 +2899,17 @@ public class Script : ScriptBase
                             ["name"] = new JObject
                             {
                               ["type"] = "string",
-                              ["x-ms-summary"] = "Name"
+                              ["x-ms-summary"] = "- Name"
                             },
                             ["value"] = new JObject
                             {
                               ["type"] = "string",
-                              ["x-ms-summary"] = "Value"
+                              ["x-ms-summary"] = "- Value"
                             },
                             ["show"] = new JObject
                             {
                               ["type"] = "string",
-                              ["x-ms-summary"] = "Show",
+                              ["x-ms-summary"] = "- Show",
                               ["description"] = "Select",
                               ["enum"] = new JArray ("true", "false")
                             }
@@ -2960,16 +2918,16 @@ public class Script : ScriptBase
                       }
                     }
                   },
-                  ["recipients"] = new JObject
+                  ["- recipients"] = new JObject
                   {
                     ["type"] = "object",
                     ["x-ms-summary"] = "recipients",
                     ["properties"] = new JObject
                     {
-                      ["carbonCopies"] = new JObject
+                      ["- carbonCopies"] = new JObject
                       {
                         ["type"] = "array",
-                        ["x-ms-summary"] = "Receives a Copy",
+                        ["x-ms-summary"] = "- Receives a Copy",
                         ["items"] = new JObject
                         {
                           ["type"] = "object",
@@ -2978,40 +2936,40 @@ public class Script : ScriptBase
                             ["recipientId"] = new JObject
                             {
                               ["type"] = "string",
-                              ["x-ms-summary"] = "Recipient ID"
+                              ["x-ms-summary"] = "- Recipient ID"
                             },
                             ["email"] = new JObject
                             {
                               ["type"] = "string",
-                              ["x-ms-summary"] = "Email"
+                              ["x-ms-summary"] = "- Email"
                             },
                             ["name"] = new JObject
                             {
                               ["type"] = "string",
-                              ["x-ms-summary"] = "Name"
+                              ["x-ms-summary"] = "- Name"
                             },
                             ["roleName"] = new JObject
                             {
                               ["type"] = "string",
-                              ["x-ms-summary"] = "Role Name"
+                              ["x-ms-summary"] = "- Role Name"
                             },
                             ["routingOrder"] = new JObject
                             {
                               ["type"] = "string",
-                              ["x-ms-summary"] = "Routing Order"
+                              ["x-ms-summary"] = "- Routing Order"
                             },
                             ["accessCode"] = new JObject
                             {
                               ["type"] = "string",
-                              ["x-ms-summary"] = "Access Code"
+                              ["x-ms-summary"] = "- Access Code"
                             }
                           }
                         }
                       },
-                      ["certifiedDeliveries"] = new JObject
+                      ["- certifiedDeliveries"] = new JObject
                       {
                         ["type"] = "array",
-                        ["x-ms-summary"] = "Needs to View",
+                        ["x-ms-summary"] = "- Needs to View",
                         ["items"] = new JObject
                         {
                           ["type"] = "object",
@@ -3020,40 +2978,40 @@ public class Script : ScriptBase
                             ["recipientId"] = new JObject
                             {
                               ["type"] = "string",
-                              ["x-ms-summary"] = "Recipient ID"
+                              ["x-ms-summary"] = "- Recipient ID"
                             },
                             ["email"] = new JObject
                             {
                               ["type"] = "string",
-                              ["x-ms-summary"] = "Email"
+                              ["x-ms-summary"] = "- Email"
                             },
                             ["name"] = new JObject
                             {
                               ["type"] = "string",
-                              ["x-ms-summary"] = "Name"
+                              ["x-ms-summary"] = "- Name"
                             },
                             ["roleName"] = new JObject
                             {
                               ["type"] = "string",
-                              ["x-ms-summary"] = "Role Name"
+                              ["x-ms-summary"] = "- Role Name"
                             },
                             ["routingOrder"] = new JObject
                             {
                               ["type"] = "string",
-                              ["x-ms-summary"] = "Routing Order"
+                              ["x-ms-summary"] = "- Routing Order"
                             },
                             ["accessCode"] = new JObject
                             {
                               ["type"] = "string",
-                              ["x-ms-summary"] = "Access Code"
+                              ["x-ms-summary"] = "- Access Code"
                             }
                           }
                         }
                       },
-                      ["editors"] = new JObject
+                      ["- editors"] = new JObject
                       {
                         ["type"] = "array",
-                        ["x-ms-summary"] = "Allow to Edit",
+                        ["x-ms-summary"] = "- Allow to Edit",
                         ["items"] = new JObject
                         {
                           ["type"] = "object",
@@ -3062,40 +3020,40 @@ public class Script : ScriptBase
                             ["recipientId"] = new JObject
                             {
                               ["type"] = "string",
-                              ["x-ms-summary"] = "Recipient ID"
+                              ["x-ms-summary"] = "- Recipient ID"
                             },
                             ["email"] = new JObject
                             {
                               ["type"] = "string",
-                              ["x-ms-summary"] = "Email"
+                              ["x-ms-summary"] = "- Email"
                             },
                             ["name"] = new JObject
                             {
                               ["type"] = "string",
-                              ["x-ms-summary"] = "Name"
+                              ["x-ms-summary"] = "- Name"
                             },
                             ["roleName"] = new JObject
                             {
                               ["type"] = "string",
-                              ["x-ms-summary"] = "Role Name"
+                              ["x-ms-summary"] = "- Role Name"
                             },
                             ["routingOrder"] = new JObject
                             {
                               ["type"] = "string",
-                              ["x-ms-summary"] = "Routing Order"
+                              ["x-ms-summary"] = "- Routing Order"
                             },
                             ["accessCode"] = new JObject
                             {
                               ["type"] = "string",
-                              ["x-ms-summary"] = "Access Code"
+                              ["x-ms-summary"] = "- Access Code"
                             }
                           }
                         }
                       },
-                      ["inPersonSigners"] = new JObject
+                      ["- inPersonSigners"] = new JObject
                       {
                         ["type"] = "array",
-                        ["x-ms-summary"] = "In Person Signer",
+                        ["x-ms-summary"] = "- In Person Signer",
                         ["items"] = new JObject
                         {
                           ["type"] = "object",
@@ -3104,51 +3062,51 @@ public class Script : ScriptBase
                             ["recipientId"] = new JObject
                             {
                               ["type"] = "string",
-                              ["x-ms-summary"] = "Recipient ID"
+                              ["x-ms-summary"] = "- Recipient ID"
                             },
                             ["hostEmail"] = new JObject
                             {
                               ["type"] = "string",
-                              ["x-ms-summary"] = "Host Email"
+                              ["x-ms-summary"] = "- Host Email"
                             },
                             ["hostName"] = new JObject
                             {
                               ["type"] = "string",
-                              ["x-ms-summary"] = "Host Name"
+                              ["x-ms-summary"] = "- Host Name"
                             },
                             ["signerEmail"] = new JObject
                             {
                               ["type"] = "string",
-                              ["x-ms-summary"] = "Signer Email"
+                              ["x-ms-summary"] = "- Signer Email"
                             },
                             ["signerName"] = new JObject
                             {
                               ["type"] = "string",
-                              ["x-ms-summary"] = "Signer Name"
+                              ["x-ms-summary"] = "- Signer Name"
                             },
                             ["roleName"] = new JObject
                             {
                               ["type"] = "string",
-                              ["x-ms-summary"] = "Role Name"
+                              ["x-ms-summary"] = "- Role Name"
                             },
                             ["routingOrder"] = new JObject
                             {
                               ["type"] = "string",
-                              ["x-ms-summary"] = "Routing Order"
+                              ["x-ms-summary"] = "- Routing Order"
                             },
                             ["accessCode"] = new JObject
                             {
                               ["type"] = "string",
-                              ["x-ms-summary"] = "Access Code"
+                              ["x-ms-summary"] = "- Access Code"
                             },
-                            ["tabs"] = tabsJsonObj.DeepClone()
+                            ["- tabs"] = tabsJsonObj.DeepClone()
                           }
                         }
                       },
-                      ["intermediaries"] = new JObject
+                      ["- intermediaries"] = new JObject
                       {
                         ["type"] = "array",
-                        ["x-ms-summary"] = "Update Recipients",
+                        ["x-ms-summary"] = "- Update Recipients",
                         ["items"] = new JObject
                         {
                           ["type"] = "object",
@@ -3157,40 +3115,40 @@ public class Script : ScriptBase
                             ["recipientId"] = new JObject
                             {
                               ["type"] = "string",
-                              ["x-ms-summary"] = "Recipient ID"
+                              ["x-ms-summary"] = "- Recipient ID"
                             },
                             ["email"] = new JObject
                             {
                               ["type"] = "string",
-                              ["x-ms-summary"] = "Email"
+                              ["x-ms-summary"] = "- Email"
                             },
                             ["name"] = new JObject
                             {
                               ["type"] = "string",
-                              ["x-ms-summary"] = "Name"
+                              ["x-ms-summary"] = "- Name"
                             },
                             ["roleName"] = new JObject
                             {
                               ["type"] = "string",
-                              ["x-ms-summary"] = "Role Name"
+                              ["x-ms-summary"] = "- Role Name"
                             },
                             ["routingOrder"] = new JObject
                             {
                               ["type"] = "string",
-                              ["x-ms-summary"] = "Routing Order"
+                              ["x-ms-summary"] = "- Routing Order"
                             },
                             ["accessCode"] = new JObject
                             {
                               ["type"] = "string",
-                              ["x-ms-summary"] = "Access Code"
+                              ["x-ms-summary"] = "- Access Code"
                             }
                           }
                         }
                       },
-                      ["witnesses"] = new JObject
+                      ["- witnesses"] = new JObject
                       {
                         ["type"] = "array",
-                        ["x-ms-summary"] = "Signs with Witness",
+                        ["x-ms-summary"] = "- Signs with Witness",
                         ["items"] = new JObject
                         {
                           ["type"] = "object",
@@ -3199,46 +3157,46 @@ public class Script : ScriptBase
                             ["recipientId"] = new JObject
                             {
                               ["type"] = "string",
-                              ["x-ms-summary"] = "Recipient ID"
+                              ["x-ms-summary"] = "- Recipient ID"
                             },
                             ["email"] = new JObject
                             {
                               ["type"] = "string",
-                              ["x-ms-summary"] = "Email"
+                              ["x-ms-summary"] = "- Email"
                             },
                             ["name"] = new JObject
                             {
                               ["type"] = "string",
-                              ["x-ms-summary"] = "Name"
+                              ["x-ms-summary"] = "- Name"
                             },
                             ["witnessFor"] = new JObject
                             {
                               ["type"] = "string",
-                              ["x-ms-summary"] = "Witness For"
+                              ["x-ms-summary"] = "- Witness For"
                             },
                             ["roleName"] = new JObject
                             {
                               ["type"] = "string",
-                              ["x-ms-summary"] = "Role Name"
+                              ["x-ms-summary"] = "- Role Name"
                             },
                             ["routingOrder"] = new JObject
                             {
                               ["type"] = "string",
-                              ["x-ms-summary"] = "Routing Order"
+                              ["x-ms-summary"] = "- Routing Order"
                             },
                             ["accessCode"] = new JObject
                             {
                               ["type"] = "string",
-                              ["x-ms-summary"] = "Access Code"
+                              ["x-ms-summary"] = "- Access Code"
                             },
-                            ["tabs"] = tabsJsonObj.DeepClone()
+                            ["- tabs"] = tabsJsonObj.DeepClone()
                           }
                         }
                       },
-                      ["signers"] = new JObject
+                      ["- signers"] = new JObject
                       {
                         ["type"] = "array",
-                        ["x-ms-summary"] = "Needs to Sign",
+                        ["x-ms-summary"] = "- Needs to Sign",
                         ["items"] = new JObject
                         {
                           ["type"] = "object",
@@ -3247,41 +3205,42 @@ public class Script : ScriptBase
                             ["recipientId"] = new JObject
                             {
                               ["type"] = "string",
-                              ["x-ms-summary"] = "Recipient ID"
+                              ["x-ms-summary"] = "- Recipient ID"
                             },
                             ["email"] = new JObject
                             {
                               ["type"] = "string",
-                              ["x-ms-summary"] = "Email"
+                              ["x-ms-summary"] = "- Email"
                             },
                             ["name"] = new JObject
                             {
                               ["type"] = "string",
-                              ["x-ms-summary"] = "Name"
+                              ["x-ms-summary"] = "- Name"
                             },
                             ["roleName"] = new JObject
                             {
                               ["type"] = "string",
-                              ["x-ms-summary"] = "Role Name"
+                              ["x-ms-summary"] = "- Role Name"
                             },
                             ["routingOrder"] = new JObject
                             {
                               ["type"] = "string",
-                              ["x-ms-summary"] = "Routing Order"
+                              ["x-ms-summary"] = "- Routing Order"
                             },
                             ["accessCode"] = new JObject
                             {
                               ["type"] = "string",
-                              ["x-ms-summary"] = "Access Code"
+                              ["x-ms-summary"] = "- Access Code"
                             },
                             ["clientUserId"] = new JObject
                             {
                               ["type"] = "string",
-                              ["x-ms-summary"] = "Client User ID"
+                              ["x-ms-summary"] = "- Client User ID"
                             },
-                            ["recipientSignatureProviders"] = new JObject
+                            ["- recipientSignatureProviders"] = new JObject
                             {
                               ["type"] = "array",
+                              ["x-ms-summary"] = "- Recipient Signature Providers",
                               ["items"] = new JObject
                               {
                                 ["type"] = "object",
@@ -3290,9 +3249,9 @@ public class Script : ScriptBase
                                   ["signatureProviderName"] = new JObject
                                   {
                                     ["type"] = "string",
-                                    ["x-ms-summary"] = "Signature Provider Name"
+                                    ["x-ms-summary"] = "- Signature Provider Name"
                                   },
-                                  ["signatureProviderOptions"] = new JObject
+                                  ["- signatureProviderOptions"] = new JObject
                                   {
                                     ["type"] = "object",
                                     ["properties"] = new JObject
@@ -3300,14 +3259,14 @@ public class Script : ScriptBase
                                       ["SMS"] = new JObject
                                       {
                                         ["type"] = "string",
-                                        ["x-ms-summary"] = "SMS"
+                                        ["x-ms-summary"] = "- SMS"
                                       }
                                     }
                                   }
                                 }
                               }
                             },
-                            ["identityVerification"] = new JObject
+                            ["- identityVerification"] = new JObject
                             {
                               ["type"] = "object",
                               ["properties"] = new JObject
@@ -3315,11 +3274,12 @@ public class Script : ScriptBase
                                 ["workflowId"] = new JObject
                                 {
                                   ["type"] = "string",
-                                  ["x-ms-summary"] = "Workflow ID"
+                                  ["x-ms-summary"] = "- Workflow ID"
                                 },
-                                ["inputOptions"] = new JObject
+                                ["- inputOptions"] = new JObject
                                 {
                                   ["type"] = "array",
+                                  ["x-ms-summary"] = "- Input Options",
                                   ["items"] = new JObject
                                   {
                                     ["type"] = "object",
@@ -3328,16 +3288,17 @@ public class Script : ScriptBase
                                       ["name"] = new JObject
                                       {
                                         ["type"] = "string",
-                                        ["x-ms-summary"] = "Name"
+                                        ["x-ms-summary"] = "- Name"
                                       },
                                       ["valueType"] = new JObject
                                       {
                                         ["type"] = "string",
-                                        ["x-ms-summary"] = "Value Type"
+                                        ["x-ms-summary"] = "- Value Type"
                                       },
-                                      ["phoneNumberList"] = new JObject
+                                      ["- phoneNumberList"] = new JObject
                                       {
                                         ["type"] = "array",
+                                        ["x-ms-summary"] = "- Phone Number List",
                                         ["items"] = new JObject
                                         {
                                           ["type"] = "object",
@@ -3346,17 +3307,17 @@ public class Script : ScriptBase
                                             ["countryCode"] = new JObject
                                             {
                                               ["type"] = "string",
-                                              ["x-ms-summary"] = "Country Code"
+                                              ["x-ms-summary"] = "- Country Code"
                                             },
                                             ["number"] = new JObject
                                             {
                                               ["type"] = "string",
-                                              ["x-ms-summary"] = "Number"
+                                              ["x-ms-summary"] = "- Number"
                                             },
                                             ["extension"] = new JObject
                                             {
                                               ["type"] = "string",
-                                              ["x-ms-summary"] = "Extension"
+                                              ["x-ms-summary"] = "- Extension"
                                             }
                                           }
                                         }
@@ -3366,7 +3327,7 @@ public class Script : ScriptBase
                                 }
                               }
                             },
-                            ["tabs"] = tabsJsonObj.DeepClone()
+                            ["- tabs"] = tabsJsonObj.DeepClone()
                           }
                         }
                       }
@@ -3379,7 +3340,7 @@ public class Script : ScriptBase
         }
       };
     }
-    // end of Composite Templates
+    // end of Composite Templates Request Body
     return CreateJsonContent(response.ToString());
   }
 
@@ -4086,12 +4047,50 @@ public class Script : ScriptBase
       body["status"] = query.Get("status");
     }
 
+    RenameKeysWithoutDashes(body);
+
     var uriBuilder = new UriBuilder(this.Context.Request.RequestUri);
     uriBuilder.Path = uriBuilder.Path.Replace("/envelopes/compositeTemplates", "/envelopes");
     this.Context.Request.RequestUri = uriBuilder.Uri;
 
     return body;
   }
+
+// Removes all dashes (-) appended to field names
+private void RenameKeysWithoutDashes(JObject jObject)
+{
+    var propertiesToRename = new List<JProperty>();
+
+    foreach (var property in jObject.Properties())
+    {
+        if (property.Name.StartsWith("-"))
+        {
+            propertiesToRename.Add(property);
+        }
+
+        if (property.Value is JObject nestedObject)
+        {
+            RenameKeysWithoutDashes(nestedObject);
+        }
+        else if (property.Value is JArray array)
+        {
+            foreach (var item in array)
+            {
+                if (item is JObject arrayObject)
+                {
+                    RenameKeysWithoutDashes(arrayObject);
+                }
+            }
+        }
+    }
+
+    foreach (var property in propertiesToRename)
+    {
+        var newKey = property.Name.TrimStart('-', ' ');
+        jObject[newKey] = property.Value;
+        jObject.Remove(property.Name);
+    }
+}
 
   private JObject EnvelopeVoidBodyTransformation(JObject body)
   {
