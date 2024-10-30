@@ -3398,6 +3398,100 @@
         "x-ms-visibility": "important"
       }
     },
+    "/accounts/{accountId}/bulk_send_lists": {
+      "post": {
+        "tags": [
+          "DocuSign"
+        ],
+        "summary": "Bulk send",
+        "description": "Bulk send",
+        "operationId": "BulkSend",
+        "consumes": [],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
+        "parameters": [
+          {
+            "name": "accountId",
+            "in": "path",
+            "description": "Account ID",
+            "required": true,
+            "x-ms-summary": "Account",
+            "x-ms-test-value": "insert account id",
+            "x-ms-dynamic-values": {
+              "operationId": "GetLoginAccounts",
+              "value-collection": "loginAccounts",
+              "value-path": "accountIdGuid",
+              "value-title": "name"
+            },
+            "type": "string"
+          },
+          {
+            "name": "csv",
+            "in": "query",
+            "description": "CSV file",
+            "required": true,
+            "x-ms-summary": "CSV file of recipient info",
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "x-ms-visibility": "important",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "documentTemplates": {
+                    "description": "Document Templates",
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "required": [
+                        "documentId",
+                        "documentStartPage",
+                        "documentEndPage"
+                      ],
+                      "properties": {
+                        "documentId": {
+                          "type": "string",
+                          "x-ms-summary": "Document ID",
+                          "description": "Document ID"
+                        },
+                        "documentStartPage": {
+                          "type": "string",
+                          "x-ms-summary": "Document start page",
+                          "description": "Document start page"
+                        },
+                        "documentEndPage": {
+                          "type": "string",
+                          "x-ms-summary": "Document end page",
+                          "description": "Document end page"
+                        }
+                      }
+                    },
+                    "x-ms-summary": "Document Templates"
+                  }
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        },
+        "deprecated": false,
+        "x-ms-no-generic-test": true,
+        "x-ms-visibility": "important"
+      }
+    },
     "/login_information": {
       "get": {
         "tags": [
