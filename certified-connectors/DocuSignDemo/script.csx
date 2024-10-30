@@ -2886,6 +2886,7 @@ public class Script : ScriptBase
                   ["- customFields"] = new JObject
                   {
                     ["type"] = "object",
+                    ["x-ms-summary"] = "- Envelope Custom Fields",
                     ["properties"] = new JObject
                     {
                       ["- textCustomFields"] = new JObject
@@ -2894,6 +2895,7 @@ public class Script : ScriptBase
                         ["items"] = new JObject
                         {
                           ["type"] = "object",
+                          ["x-ms-summary"] = "- Text Custom Fields",
                           ["properties"] = new JObject
                           {
                             ["name"] = new JObject
@@ -2924,7 +2926,7 @@ public class Script : ScriptBase
                     ["x-ms-summary"] = "recipients",
                     ["properties"] = new JObject
                     {
-                      ["- carbonCopies"] = new JObject
+                      ["- Receives a Copy"] = new JObject
                       {
                         ["type"] = "array",
                         ["x-ms-summary"] = "- Receives a Copy",
@@ -2966,7 +2968,7 @@ public class Script : ScriptBase
                           }
                         }
                       },
-                      ["- certifiedDeliveries"] = new JObject
+                      ["- Needs to View"] = new JObject
                       {
                         ["type"] = "array",
                         ["x-ms-summary"] = "- Needs to View",
@@ -3008,7 +3010,7 @@ public class Script : ScriptBase
                           }
                         }
                       },
-                      ["- editors"] = new JObject
+                      ["- Allow to Edit"] = new JObject
                       {
                         ["type"] = "array",
                         ["x-ms-summary"] = "- Allow to Edit",
@@ -3050,7 +3052,7 @@ public class Script : ScriptBase
                           }
                         }
                       },
-                      ["- inPersonSigners"] = new JObject
+                      ["- In Person Signer"] = new JObject
                       {
                         ["type"] = "array",
                         ["x-ms-summary"] = "- In Person Signer",
@@ -3103,7 +3105,7 @@ public class Script : ScriptBase
                           }
                         }
                       },
-                      ["- intermediaries"] = new JObject
+                      ["- Update Recipients"] = new JObject
                       {
                         ["type"] = "array",
                         ["x-ms-summary"] = "- Update Recipients",
@@ -3145,7 +3147,7 @@ public class Script : ScriptBase
                           }
                         }
                       },
-                      ["- witnesses"] = new JObject
+                      ["- Signs with Witness"] = new JObject
                       {
                         ["type"] = "array",
                         ["x-ms-summary"] = "- Signs with Witness",
@@ -3193,7 +3195,7 @@ public class Script : ScriptBase
                           }
                         }
                       },
-                      ["- signers"] = new JObject
+                      ["- Needs to Sign"] = new JObject
                       {
                         ["type"] = "array",
                         ["x-ms-summary"] = "- Needs to Sign",
@@ -4049,6 +4051,20 @@ public class Script : ScriptBase
 
     RenameKeysWithoutDashes(body);
 
+    var keyMappings = new Dictionary<string, string> { 
+      { "Envelope Custom Fields", "customFields" },
+      { "Text Custom Fields", "textCustomFields" },
+      { "Receives a Copy", "carbonCopies" },
+      { "Needs to View", "certifiedDeliveries" },
+      { "Allow to Edit", "editors" },
+      { "In Person Signer", "inPersonSigners" },
+      { "Update Recipients", "intermediaries" },
+      { "Signs with Witness", "witnesses" },
+      { "Needs to Sign", "signers" }
+    };
+
+    RenameSpecificKeys(body, keyMappings);
+
     var uriBuilder = new UriBuilder(this.Context.Request.RequestUri);
     uriBuilder.Path = uriBuilder.Path.Replace("/envelopes/compositeTemplates", "/envelopes");
     this.Context.Request.RequestUri = uriBuilder.Uri;
@@ -4087,6 +4103,44 @@ private void RenameKeysWithoutDashes(JObject jObject)
     foreach (var property in propertiesToRename)
     {
         var newKey = property.Name.TrimStart('-', ' ');
+        jObject[newKey] = property.Value;
+        jObject.Remove(property.Name);
+    }
+}
+
+private void RenameSpecificKeys(JObject jObject, Dictionary<string, string> keyMappings)
+{
+    var propertiesToRename = new List<JProperty>();
+
+    // Collect properties that need renaming based on the provided keyMappings
+    foreach (var property in jObject.Properties())
+    {
+        if (keyMappings.ContainsKey(property.Name))
+        {
+            propertiesToRename.Add(property);
+        }
+
+        // If the property is a nested object, recursively call the function
+        if (property.Value is JObject nestedObject)
+        {
+            RenameSpecificKeys(nestedObject, keyMappings);
+        }
+        else if (property.Value is JArray array)
+        {
+            foreach (var item in array)
+            {
+                if (item is JObject arrayObject)
+                {
+                    RenameSpecificKeys(arrayObject, keyMappings);
+                }
+            }
+        }
+    }
+
+    // Rename collected properties
+    foreach (var property in propertiesToRename)
+    {
+        var newKey = keyMappings[property.Name];
         jObject[newKey] = property.Value;
         jObject.Remove(property.Name);
     }
