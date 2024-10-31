@@ -2883,13 +2883,13 @@ public class Script : ScriptBase
                     ["type"] = "string",
                     ["x-ms-summary"] = "- sequence"
                   },
-                  ["- customFields"] = new JObject
+                  ["- Envelope Custom Fields"] = new JObject
                   {
                     ["type"] = "object",
                     ["x-ms-summary"] = "- Envelope Custom Fields",
                     ["properties"] = new JObject
                     {
-                      ["- textCustomFields"] = new JObject
+                      ["- Text Custom Fields"] = new JObject
                       {
                         ["type"] = "array",
                         ["items"] = new JObject
