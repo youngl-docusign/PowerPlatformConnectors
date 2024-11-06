@@ -175,6 +175,191 @@ public class Script : ScriptBase
       response["fontNames"] = fontNamesArray;
     }
 
+    if (operationId.Equals("StaticResponseForBulkSendBodySchema", StringComparison.OrdinalIgnoreCase))
+    {
+      var query = HttpUtility.ParseQueryString(context.Request.RequestUri.Query);
+      var dataType = query.Get("dataType");
+      response["name"] = "dynamicSchema";
+      response["title"] = "dynamicSchema";
+      if (dataType.Equals("csv", StringComparison.OrdinalIgnoreCase))
+      {
+        response["schema"] = new JObject
+        {
+          ["type"] = "object",
+          ["properties"] = new JObject
+          {
+            ["csv"] = new JObject
+            {
+              ["type"] = "string",
+              ["x-ms-summary"] = "CSV file content"
+            }
+          }
+        };
+      }
+      else
+      {
+        response["schema"] = new JObject
+        {
+          ["type"] = "object",
+          ["properties"] = new JObject
+          {
+            ["bulkSendingList"] = new JObject
+            {
+              ["type"] = "object",
+              ["properties"] = new JObject
+                {
+                  ["name"] = new JObject
+                  {
+                    ["type"] = "string",
+                    ["x-ms-summary"] = "name of the bulk sending list"
+                  },
+                  ["bulkCopies"] = new JObject
+                  {
+                    ["type"] = "array",
+                    ["items"] = new JObject
+                    {
+                      ["type"] = "object",
+                      ["x-ms-summary"] = "Bulk Copies",
+                      ["properties"] = new JObject
+                      {
+                        ["customFields"] = new JObject
+                        {
+                          ["type"] = "object",
+                          ["properties"] = new JObject
+                          {
+                            ["name"] = new JObject
+                            {
+                              ["type"] = "string"
+                            },
+                            ["value"] = new JObject
+                            {
+                              ["type"] = "string"
+                            }
+                          }
+                        },
+                        ["emailBlurb"] = new JObject
+                        {
+                          ["type"] = "string",
+                          ["x-ms-summary"] = "Email Body"
+                        },
+                        ["emailSubject"] = new JObject
+                        {
+                          ["type"] = "string",
+                          ["x-ms-summary"] = "Email Subject"
+                        },
+                        ["recipients"] = new JObject
+                        {
+                          ["type"] = "array",
+                          ["items"] = new JObject
+                          {
+                            ["type"] = "object",
+                            ["properties"] = new JObject
+                            {
+                              ["accessCode"] = new JObject
+                              {
+                                ["type"] = "string",
+                                ["x-ms-summary"] = "Access Code"
+                              },
+                              ["clientUserId"] = new JObject
+                              {
+                                ["type"] = "string",
+                                ["x-ms-summary"] = "Client User ID"
+                              },
+                              ["deliveryMethod"] = new JObject
+                              {
+                                ["type"] = "string",
+                                ["x-ms-summary"] = "Delivery Method"
+                              },
+                              ["email"] = new JObject
+                              {
+                                ["type"] = "string"
+                              },
+                              ["emailNotification"] = new JObject
+                              {
+                                ["type"] = "object",
+                                ["x-ms-summary"] = "Email Notification",
+                                ["properties"] = new JObject
+                                {
+                                  ["emailBody"] = new JObject
+                                  {
+                                    ["type"] = "string",
+                                    ["x-ms-summary"] = "Email Body"
+                                  },
+                                  ["emailSubject"] = new JObject
+                                  {
+                                    ["type"] = "string",
+                                    ["x-ms-summary"] = "Email Subject"
+                                  },
+                                  ["supportedLanguage"] = new JObject
+                                  {
+                                    ["type"] = "string",
+                                    ["x-ms-summary"] = "Supported Language"
+                                  }
+                                }
+                              },
+                              ["embeddedRecipientStartURL"] = new JObject
+                              {
+                                ["type"] = "string",
+                                ["x-ms-summary"] = "Embedded Recipient Start URL"
+                              },
+                              ["hostEmail"] = new JObject
+                              {
+                                ["type"] = "string",
+                                ["x-ms-summary"] = "Host Email"
+                              },
+                              ["hostName"] = new JObject
+                              {
+                                ["type"] = "string",
+                                ["x-ms-summary"] = "Host Name"
+                              },
+                              ["name"] = new JObject
+                              {
+                                ["type"] = "string"
+                              },
+                              ["note"] = new JObject
+                              {
+                                ["type"] = "string"
+                              },
+                              ["roleName"] = new JObject
+                              {
+                                ["type"] = "string",
+                                ["x-ms-summary"] = "Role Name"
+                              },
+                              ["signerName"] = new JObject
+                              {
+                                ["type"] = "string",
+                                ["x-ms-summary"] = "Signer Name"
+                              },
+                              ["tabs"] = new JObject
+                              {
+                                ["type"] = "object",
+                                ["properties"] = new JObject
+                                {
+                                  ["initialValue"] = new JObject
+                                  {
+                                    ["type"] = "string",
+                                    ["x-ms-summary"] = "Initial Value"
+                                  },
+                                  ["tabLabel"] = new JObject
+                                  {
+                                    ["type"] = "string",
+                                    ["x-ms-summary"] = "Tab Label"
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          };
+      }
+    }
+
     if (operationId.Equals("StaticResponseForAnchorTabSchema", StringComparison.OrdinalIgnoreCase))
     {
       var query = HttpUtility.ParseQueryString(context.Request.RequestUri.Query);
@@ -2884,66 +3069,145 @@ public class Script : ScriptBase
     return body;
   }
 
-  private async Task BulkSendBodyTransformation(JObject body)
+  private JObject BulkSendBodyTransformation(JObject body)
   {
-    await this.ParseCSV().ConfigureAwait(false);
+    var query = HttpUtility.ParseQueryString(this.Context.Request.RequestUri.Query);
+    var dataType = query.Get("dataType");
+    var name = query.Get("name");
+    if("csv".Equals(dataType, StringComparison.OrdinalIgnoreCase))
+    {
+      JObject newBody = ParseCSV(body);
+      newBody["name"] = name;
+      return newBody;
+    }
+    body["name"] = name;
+    return body;
   }
 
-  private async Task<HttpResponseMessage> ParseCSV()
+  private JObject ParseCSV(JObject inputBody)
   {
-    // Get the input
-    var input = await this.Context.Request.Content.ReadAsStringAsync().ConfigureAwait(false);
+    var input = inputBody.GetValue("csv").ToString();
+    var body = new JObject();
 
-    // Split the lines out 
-    var lines = input["csv"].Split(new string[] { "\r\n", "\r", "\n" }, StringSplitOptions.None);
+    var result = new JObject();
 
-    // Assume the first line is a header and there are no extra delimeters
-    var headerLine = lines[0];
-    var headerItems = headerLine.Split(',');
-
-    // Prepare the output 
-    var output = new StringBuilder();
-    output.Append("[");
-
-    // Iterate over the other lines (index at 1 to skip header line)
-    for (var index = 1; index < lines.Length; index++)
+    try
     {
-      // Skip empty lines
-      if (String.IsNullOrWhiteSpace(lines[index]))
-      {
-        continue;
-      }
-      
-      output.Append("{");
+        var lines = input.Split(new string[] { "\r\n", "\r", "\n" }, StringSplitOptions.None);
 
-      // Do a simple split on the line for now (proff of concept)
-      var lineItems = SplitQualified(lines[index], ',', '"', true);
+        var headerLine = lines[0];
+        var headerItems = headerLine.Split(',');
 
-      for (var index2 = 0; index2 < lineItems.Count; index2++)
-      {
-        output.Append("\"" + headerItems[index2] + "\":");
-        output.Append("\"" + lineItems[index2] + "\"");
+        var parsedHeaders = new string[headerItems.Length][];
 
-        if (index2 < lineItems.Count - 1)
+        for (int i = 0; i < headerItems.Length; i++)
         {
-            output.Append(",");
+            parsedHeaders[i] = headerItems[i].Split(new string[] { "::" }, StringSplitOptions.None);
         }
-      }
 
-      output.Append("}");
+        string[] recipientFields = { "accessCode", "clientUserId", "deliveryMethod", "email", "embeddedRecipientStartURL", "hostEmail", "hostName", "idCheckConfigurationName", "name", "note", "recipientId", "roleName", "signerName", "signingGroupId" };
 
-      if (index < lines.Length - 1)
-      {
-        output.Append(",");
-      }
+        Dictionary<string, JObject> recipientDataMap = new Dictionary<string, JObject>();
+
+        body["recipients"] = new JArray();
+
+        result["bulkCopies"] = new JArray();
+      
+        var recipientObject = new JObject();
+
+        // Iterate over the other lines (index at 1 to skip header line)
+        for (var index = 1; index < lines.Length; index++)
+        {
+            var fieldValues = lines[index].Split(',');
+            var roleName = "";
+            var fieldName = "";
+
+            for (var index2 = 0; index2 < fieldValues.Length; index2++)
+            {
+                var columnName = parsedHeaders[index2];
+                var value = fieldValues[index2];
+                if (string.IsNullOrEmpty(value))
+                {
+                    continue;
+                }
+                // recipient info
+                if (columnName.Length > 1)
+                {
+                  roleName = columnName[0];
+                  fieldName = columnName[1];
+                  fieldName = fieldName.Replace(" ", "");
+                  fieldName = char.ToLower(fieldName[0]) + fieldName.Substring(1);
+
+                  JObject recipientObj;
+                  if (recipientDataMap.ContainsKey(roleName))
+                  {
+                    recipientObj = recipientDataMap[roleName];
+                  }
+                  else
+                  {
+                    recipientDataMap[roleName] = new JObject();
+                    recipientObj = recipientDataMap[roleName];
+                    recipientObj["roleName"] = roleName;
+                  }
+                  if (recipientFields.Contains(fieldName))
+                  {
+                      recipientObj[fieldName] = value;
+                      continue;
+                  }
+                  if (fieldName.Equals("emailSubject", StringComparison.OrdinalIgnoreCase) ||
+                  fieldName.Equals("emailBody", StringComparison.OrdinalIgnoreCase) ||
+                  fieldName.Equals("language", StringComparison.OrdinalIgnoreCase))
+                  {
+                    if (!recipientObj.ContainsKey("emailNotification"))
+                    {
+                      recipientObj["emailNotification"] = new JObject();
+                    }
+                    recipientObj["emailNotification"][fieldName] = value;
+                  }
+                  else
+                  {
+                      if (!recipientObj.ContainsKey("tabs"))
+                      {
+                          recipientObj["tabs"] = new JArray();
+                      }
+                      ((JArray)recipientObj["tabs"]).Add(new JObject()
+                      {
+                          ["tabLabel"] = fieldName,
+                          ["initialValue"] = value
+                      });
+                  }
+                }
+                else
+                {
+                    // custom fields info
+                    if (!body.ContainsKey("customFields"))
+                    {
+                      body["customFields"] = new JArray();
+                    }
+                    ((JArray) body["customFields"]).Add(new JObject()
+                    {
+                      ["name"] = columnName[0],
+                      ["value"] = value
+                    });
+                }
+            }
+            foreach (KeyValuePair<string, JObject> pair in recipientDataMap)
+            {
+              var recipientObj = pair.Value;
+              ((JArray)body["recipients"]).Add(recipientObj.DeepClone());
+            }
+            ((JArray)result["bulkCopies"]).Add(body.DeepClone());
+            body["recipients"] = new JArray();
+            body["customFields"] = new JArray();
+            recipientDataMap = new Dictionary<string, JObject>(); 
+        }
+
     }
-
-    output.Append("]");
-
-    HttpResponseMessage response = new HttpResponseMessage(HttpStatusCode.OK);
-    response.Content = new StringContent(output.ToString());
-
-    return response;
+    catch (JsonReaderException ex)
+    {
+        throw new ConnectorException(HttpStatusCode.BadRequest, "Please refer to Docusign documentations and follow CSV file guidelines. Unable to parse the request body", ex);
+    }
+    return result;
   }
 
   private List<String> SplitQualified(String source, Char delimiter, Char qualifier,
@@ -3227,9 +3491,9 @@ public class Script : ScriptBase
       await this.TransformRequestJsonBody(this.ApplyTemplateBodyTransformation).ConfigureAwait(false);
     }
 
-    if ("BulkSend".Equals(this.Context.OperationId, StringComparison.OrdinalIgnoreCase))
+    if ("CreateBulkSendList".Equals(this.Context.OperationId, StringComparison.OrdinalIgnoreCase))
     {
-      await this.BulkSendBodyTransformation().ConfigureAwait(false);
+      await this.TransformRequestJsonBody(this.BulkSendBodyTransformation).ConfigureAwait(false);
     }
 
     if ("UpdateRecipientTabsValues".Equals(this.Context.OperationId, StringComparison.OrdinalIgnoreCase))
